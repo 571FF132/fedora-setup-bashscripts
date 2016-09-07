@@ -1,0 +1,41 @@
+#!/bin/bash
+
+# 2nd setup script
+echo ''
+echo ''
+echo '2nd setup script'
+echo ''
+echo ''
+
+dnf -y group install "Editors" "Educational Software"
+dnf -y group install "C Development Tools and Libraries"
+dnf -y group install "System Tools" "Development Tools" 
+dnf -y group install "Web Server"
+dnf -y install kernel-devel
+dnf -y install qt-devel xz-libs openssl-devel elfutils-libelf-devel
+
+echo ''
+echo ''
+echo 'Remove the Calligra office suite (default for KDE) as we want to use LibreOffice instead'
+echo ''
+echo ''
+dnf -y remove calligra-core
+dnf -y group install "LibreOffice"
+
+echo ''
+echo ''
+echo 'Add the RPM Fusion repo for extra software that Fedora doesn’t include'
+echo ''
+echo ''
+
+rpm -ivh http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-24.noarch.rpm
+rpm -ivh http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-24.noarch.rpm
+
+
+echo ''
+echo 'some more useful packages and fonts'
+echo ''
+
+dnf -y install kile gnuplot geeqie
+dnf -y install google-droid-sans-fonts
+

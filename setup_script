@@ -1,0 +1,19 @@
+#!/bin/bash
+
+#Fedora 24 update script
+
+echo 'yum plugin'
+
+dnf -y install yum-plugin-fastestmirror
+
+echo 'update'
+
+dnf -y update
+
+echo 'install VIM'
+
+dnf -y install vim-enhanced vim-X11 vim-vimoutliner
+
+
+
+
